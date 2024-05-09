@@ -11,6 +11,13 @@
   --background-geral: rgba(255, 255, 255, 0.95);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
 .modal {
   position: fixed;
   left: 0;
