@@ -1,0 +1,38 @@
+:root {
+  --bt-background: #00D9A5;
+  --text-color-menu: rgba(110, 128, 122, 0.8);
+  --text-color-welcome: #6E807A;
+  --background-welcome: #F7F5FD;
+  --bachground-bt-nossos-dotores: #1D2A4D;
+  --background-nossos-service: #F7F5FD;
+  --h1-about: #13C5DD;
+  --test-footer: #EFF5FF;
+  --background-geral: rgba(255, 255, 255, 0.95);
+  --button-background: #007cc2;
+  --text-color-white: #ffffff;
+  --background-button: #e7f4f4;
+  --box-schadow: 0px 0px 15px #999;
+  --border-bottom: 1px solid var(--text-color-white);
+  --background-geral: #f3f4f5;
+}
+
+.card-buttom-reservar {
+  width: 8rem;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.card-buttom-reservar button {
+  padding: .8rem 2rem;
+  background: var(--button-background);
+  border-radius: 16px;
+  border: none;
+  color: var(--text-color-white);
+  cursor: pointer;
+}
+
+.container .card-quarto section+section {
+  margin-right: 2rem;
+}
