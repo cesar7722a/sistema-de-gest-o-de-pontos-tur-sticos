@@ -9,6 +9,9 @@
   --h1-about: #13C5DD;
   --test-footer: #EFF5FF;
   --background-geral: rgba(255, 255, 255, 0.95);
+  --button-background: #007cc2;
+  --text-color: #ffffff;
+  --background-button: #e7f4f4;
 }
 
 * {
@@ -57,7 +60,6 @@
 
 .header {
   grid-area: header;
-  background: red;
 }
 
 .menuLeft {
@@ -71,7 +73,6 @@
 
 .containerBody {
   grid-area: containerBody;
-  background: blue;
 }
 
 ul h1 {
