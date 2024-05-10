@@ -1,5 +1,4 @@
 :root {
-  --text-color-bt: #fff;
   --bt-background: #00D9A5;
   --text-color-menu: rgba(110, 128, 122, 0.8);
   --text-color-welcome: #6E807A;
@@ -137,7 +136,7 @@ ul li i {
   height: 14rem;
   display: flex;
   gap: 20px;
-  border-radius: 8px;
+  border-radius: 16px;
   border: none;
   background: var(--text-color-white);
   box-shadow: var(--box-schadow);
@@ -164,4 +163,8 @@ ul li i {
 .container .card-quarto section span {
   height: 2rem;
   font-size: 1rem;
+}
+
+.container .card-quarto section strong {
+  margin-right: 8px;
 }
