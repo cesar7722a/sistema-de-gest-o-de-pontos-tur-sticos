@@ -10,8 +10,10 @@
   --test-footer: #EFF5FF;
   --background-geral: rgba(255, 255, 255, 0.95);
   --button-background: #007cc2;
-  --text-color: #ffffff;
+  --text-color-white: #ffffff;
   --background-button: #e7f4f4;
+  --box-schadow: 0px 0px 15px #999;
+  --border-bottom: 1px solid var(--text-color-white);
 }
 
 * {
@@ -24,7 +26,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 3.8fr 15fr;
+  grid-template-columns: 4fr 16fr;
   grid-template-rows: 4rem 30rem;
   grid-template-areas:
     "menuLeft header"
@@ -66,18 +68,26 @@
   grid-area: menuLeft;
   background: var(--bachground-bt-nossos-dotores);
   margin: 3rem 10px 0 10px;
-  height: 24rem;
+  height: 26rem;
+  width: 16rem;
   border-radius: 16px;
   padding: 10px;
+  position: fixed;
+  box-shadow: var(--box-schadow);
+
 }
 
 .containerBody {
   grid-area: containerBody;
+  height: 50rem;
 }
 
 ul h1 {
   margin: 10px 0 .5rem 0;
+  padding: 0 1rem 10px 1rem;
   text-align: center;
+  color: var(--text-color-white);
+  border-bottom: var(--border-bottom);
 }
 
 ul li {
@@ -87,5 +97,11 @@ ul li {
 
 ul li a {
   font-size: 1.2rem;
-  color: #FFFFFF;
+  color: var(--text-color-white);
+}
+
+ul li i {
+  font-size: 1rem;
+  padding: 0 10px;
+  color: var(--text-color-white);
 }
