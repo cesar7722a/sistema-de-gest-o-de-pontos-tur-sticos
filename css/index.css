@@ -16,6 +16,16 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
+  font-family: "Inter";
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 3.8fr 15fr;
+  grid-template-rows: 4rem 30rem;
+  grid-template-areas:
+    "menuLeft header"
+    "menuLeft containerBody";
 }
 
 .modal {
@@ -43,4 +53,38 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.header {
+  grid-area: header;
+  background: red;
+}
+
+.menuLeft {
+  grid-area: menuLeft;
+  background: var(--bachground-bt-nossos-dotores);
+  margin: 3rem 10px 0 10px;
+  height: 24rem;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.containerBody {
+  grid-area: containerBody;
+  background: blue;
+}
+
+ul h1 {
+  margin: 10px 0 .5rem 0;
+  text-align: center;
+}
+
+ul li {
+  width: 100%;
+  padding: 16px 0 16px 16px;
+}
+
+ul li a {
+  font-size: 1.2rem;
+  color: #FFFFFF;
 }
