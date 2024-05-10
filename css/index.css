@@ -14,6 +14,7 @@
   --background-button: #e7f4f4;
   --box-schadow: 0px 0px 15px #999;
   --border-bottom: 1px solid var(--text-color-white);
+  --background-geral: #f3f4f5;
 }
 
 * {
@@ -27,7 +28,7 @@
 .container {
   display: grid;
   grid-template-columns: 4fr 16fr;
-  grid-template-rows: 4rem 30rem;
+  grid-template-rows: 10rem 30rem;
   grid-template-areas:
     "menuLeft header"
     "menuLeft containerBody";
@@ -60,8 +61,30 @@
   align-items: center;
 }
 
+body {
+  background: var(--background-geral);
+}
+
 .header {
   grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 10rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+}
+
+.header button {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--text-color-white);
+  background: var(--bachground-bt-nossos-dotores);
+  border: none;
+  cursor: pointer;
 }
 
 .menuLeft {
@@ -75,11 +98,6 @@
   position: fixed;
   box-shadow: var(--box-schadow);
 
-}
-
-.containerBody {
-  grid-area: containerBody;
-  height: 50rem;
 }
 
 ul h1 {
@@ -104,4 +122,46 @@ ul li i {
   font-size: 1rem;
   padding: 0 10px;
   color: var(--text-color-white);
+}
+
+.containerBody {
+  grid-area: containerBody;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.container .card-quarto {
+  width: 60rem;
+  height: 14rem;
+  display: flex;
+  gap: 20px;
+  border-radius: 8px;
+  border: none;
+  background: var(--text-color-white);
+  box-shadow: var(--box-schadow);
+}
+
+.container .card-quarto img {
+  width: 16rem;
+  height: auto;
+  border-radius: 8px 0px 0px 8px;
+}
+
+.container .card-quarto section {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0 0 0;
+  gap: 10px;
+  height: 100%;
+}
+
+.container .card-quarto section+section {
+  margin-left: 8rem;
+}
+
+.container .card-quarto section span {
+  height: 2rem;
+  font-size: 1rem;
 }
