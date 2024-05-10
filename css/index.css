@@ -68,8 +68,9 @@ body {
   grid-area: header;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 10rem;
+  padding: 0 7.5rem;
 }
 
 .header h1 {
@@ -78,7 +79,7 @@ body {
 
 .header button {
   padding: 1rem 2rem;
-  border-radius: 8px;
+  border-radius: 16px;
   font-size: 16px;
   color: var(--text-color-white);
   background: var(--bachground-bt-nossos-dotores);
