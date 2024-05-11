@@ -42,7 +42,7 @@
   right: 0;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.5);
-  display: none;
+  display: flex;
   transition: all ease .5s;
   justify-content: center;
   align-items: center;
@@ -50,8 +50,8 @@
 }
 
 .modal .card {
-  width: 25rem;
-  height: 30rem;
+  width: 60rem;
+  height: 33rem;
   background-color: #FFF;
   border-radius: 10px;
   box-shadow: 0px 0px 15px #999;
@@ -164,4 +164,75 @@ ul li i {
 .container .card-quarto section span {
   height: 2rem;
   font-size: 1rem;
+}
+
+form {
+  display: flex;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form label input {
+  width: 18rem;
+  height: 2.5rem;
+  outline: none;
+  border-radius: 16px;
+  padding: 0 8px;
+  font-size: 16px;
+}
+
+form button {
+  width: 9.4rem;
+  height: 3rem;
+  margin: 0 auto;
+  border-radius: 16px;
+  font-size: 16px;
+  background: var(--button-background);
+  color: var(--text-color-white);
+  cursor: pointer;
+  border: none;
+}
+
+form .card-dados {
+  display: flex;
+  gap: 20px;
+}
+
+form .card-dados section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form .card-foto {
+  width: 16rem;
+  height: 16rem;
+  border: 1px solid red;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form .card-btton {
+  margin-top: 6rem;
+}
+
+form #inputFile {
+  display: none;
+}
+
+form #labelFile {
+  margin-top: 1.6rem;
+  border: 1px solid var(--background-nossos-service);
+  padding: .8rem 0;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
 }
