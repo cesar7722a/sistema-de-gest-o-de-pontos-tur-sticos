@@ -12,16 +12,17 @@
 <body class="container">
   <header class="header">
     <h1>Cadastro de Quartos</h1>
-    <button>Cadastrar Quarto</button>
+    <button class="button-cadastrar-quarto">Cadastrar Quarto</button>
   </header>
   <div class="menuLeft">
     <ul>
       <h1>Menu</h1>
-      <li><i class="fa-solid fa-bed"></i><a href="index.html">Quartos</a></li>
+      <li><i class="fa-solid fa-bed"></i><a href="#">Quartos</a></li>
       <li><i class="fa-solid fa-user"></i><a href="#">Turísta</a></li>
-      <li><i class="fa-solid fa-phone"></i><a href="reservas.html">Reservas</a></li>
-      <li><i class="fa-solid fa-plane"></i><a href="pontos.html">Pontos Turísticos</a></li>
-      <li><i class="fa-solid fa-hotel"></i><a href="hoteis.html">Hoteis</a></li>
+      <li><i class="fa-solid fa-phone"></i><a href="#">Reservas</a></li>
+      <li><i class="fa-solid fa-plane"></i><a href="#">Pontos Turísticos</a></li>
+      <li><i class="fa-solid fa-location-crosshairs"></i><a href="#">Localização</a></li>
+      <li><i class="fa-solid fa-hotel"></i><a href="#">Hoteis</a></li>
     </ul>
   </div>
   <div class="containerBody">
@@ -64,46 +65,57 @@
         <span><strong>valor:</strong></span>
       </section>
     </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong></span>
-        <span><strong>Facilidade:</strong></span>
-        <span><strong>valor:</strong></span>
-      </section>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong></span>
-        <span><strong>Facilidade:</strong></span>
-        <span><strong>valor:</strong></span>
-      </section>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong></span>
-        <span><strong>Facilidade:</strong></span>
-        <span><strong>valor:</strong></span>
-      </section>
+  </div>
+  <div class="modal">
+    <div class="card">
+      <h1>Cadastrar Quarto</h1>
+      <form action="">
+        <div class="card-foto">
+          <img src="" alt="">
+          <h6>foto</h6>
+        </div>
+        <div class="card-dados">
+          <section>
+            <label for="mumero">
+              Número:
+              <input type="number" id="numero" placeholder="Digite o Número do Quarto">
+            </label>
+            <label for="andar">
+              Andar:
+              <input type="number" id="andar" placeholder="Digite o Número do Andar">
+            </label>
+            <label for="quantidadeCama">
+              Quantidade De Cama:
+              <input type="number" id="quantidadeCama" placeholder="Digite o Quantidade de Camas">
+            </label>
+            <label for="tipo">
+              Tipo:
+              <input type="text" id="tipo" placeholder="Digite o Tipo de Quarto">
+            </label>
+          </section>
+          <section>
+            <label for="facilidade">
+              Facilidade:
+              <input type="text" id="facilidade" placeholder="Digite a facilidade do Quarto">
+            </label>
+            <label for="valor">
+              Valor:
+              <input type="number" id="valor" placeholder="Digite o Valor do Quarto">
+            </label>
+            <label for="inputFile" id="labelFile">
+              Clique Aqui para Adicionar Foto
+              <input type="file" id="inputFile">
+            </label>
+            <div class="card-btton">
+              <button class="buttonCadastrarQuarto">Cadastrar</button>
+              <button class="cancelModal">Cancelar</button>
+            </div>
+          </section>
+        </div>
+      </form>
     </div>
   </div>
+  <script src="script/index.js"></script>
 </body>
 
 </html>
