@@ -109,25 +109,25 @@ document.querySelector(`#inputFile`).addEventListener(`change`, () => {
   });
 });
 
-// function validarNome(nome){
-//   return /^[a-zA-Z{1,3}]{3,}$/.test(nome);
-// };
-// function validarEspecialidade(nome){
-//   return /^[a-zA-Z{1,4}]{3,}$/.test(nome);
-// };
-// function validarPassword(password){
-//   return /^[a-zA-Z0-9]{6,}$/.test(password);
-//   // return  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
-// };
-// function validarTelefone(telefone){
-//  return /^[0-9]{9,}$/.test(telefone);
-// };
-// function validarEmail(email) {
-//   return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email);
-// };
-// function validarBI(bilhete) {
-//   return /^[0-9A-Z]{6,}$/.test(bilhete);
-// };
+function validarNemero(nome) {
+  return /^[a-zA-Z{1,3}]{3,}$/.test(nome);
+};
+function validarAndar(nome) {
+  return /^[a-zA-Z{1,4}]{3,}$/.test(nome);
+};
+function validarQantidadeCama(password) {
+  return /^[a-zA-Z0-9]{6,}$/.test(password);
+  // return  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
+};
+function validarTipo(telefone) {
+  return /^[0-9]{9,}$/.test(telefone);
+};
+function validarFacilidade(email) {
+  return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email);
+};
+function validarValor(bilhete) {
+  return /^[0-9A-Z]{6,}$/.test(bilhete);
+};
 
 renderQuuarto();
 function salveArrayQuarto() {
