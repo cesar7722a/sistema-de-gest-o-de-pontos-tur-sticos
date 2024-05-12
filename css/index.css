@@ -1,4 +1,6 @@
 :root {
+  --corDadosErrado: red;
+  --corDadosCerto: green;
   --text-color-bt: #fff;
   --bt-background: #00D9A5;
   --text-color-menu: rgba(110, 128, 122, 0.8);
@@ -16,6 +18,9 @@
   --border-bottom: 1px solid var(--text-color-white);
   --background-geral: #f3f4f5;
   --border-form-imagem: 2px solid rgb(94, 86, 86);
+  --box-schedow-scrom-header: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  --border-dadosErados: 1px solid var(--corDadosErrado);
+  --border-dadosCertos: 1px solid var(--corDadosCerto);
 }
 
 * {
@@ -24,6 +29,10 @@
   text-decoration: none;
   list-style: none;
   font-family: "Inter";
+}
+
+p {
+  display: none;
 }
 
 .container {
@@ -52,7 +61,7 @@
 
 .modal .card {
   width: 60rem;
-  height: 33rem;
+  height: 40rem;
   background-color: #FFF;
   border-radius: 10px;
   box-shadow: 0px 0px 15px #999;
@@ -174,7 +183,7 @@ ul li i {
 form {
   display: flex;
   gap: 20px;
-  padding: 30px 0;
+  padding: 40px 0 0 0;
 }
 
 form label {
@@ -215,6 +224,10 @@ form .card-dados section {
   gap: 10px;
 }
 
+form .card-dados section label {
+  height: 6rem;
+}
+
 form .card-foto {
   width: 16rem;
   height: 16rem;
@@ -233,7 +246,9 @@ form .card-foto img {
 }
 
 form .card-btton {
-  margin-top: 6rem;
+  height: 10rem;
+  display: flex;
+  align-items: end;
 }
 
 form #inputFile {
@@ -243,8 +258,18 @@ form #inputFile {
 form #labelFile {
   margin-top: 1.6rem;
   border: var(--border-form-imagem);
-  padding: .8rem 0;
+  height: 2.5rem;
   border-radius: 16px;
-  text-align: center;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dadosErrados {
+  color: var(--corDadosErrado);
+}
+
+.dadosCertos {
+  color: var(--corDadosCerto);
 }

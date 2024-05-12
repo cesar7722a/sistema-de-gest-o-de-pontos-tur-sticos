@@ -70,41 +70,55 @@
       <h1>Cadastrar Quarto</h1>
       <form action="">
         <div class="card-foto">
-          <img src="" alt="">
+          <img src="" alt="imagem não encontrada">
           <h6>foto</h6>
         </div>
         <div class="card-dados">
           <section>
-            <label for="mumero">
+
+            <label for="mumero" id="labelNumero">
               Número:
               <input type="number" id="numero" placeholder="Digite o Número do Quarto">
+              <p></p>
             </label>
-            <label for="andar">
+
+            <label for="andar" id="labelAndar">
               Andar:
               <input type="number" id="andar" placeholder="Digite o Número do Andar">
+              <p></p>
             </label>
-            <label for="quantidadeCama">
+
+            <label for="quantidadeCama" id="labelQuantidade">
               Quantidade De Cama:
               <input type="number" id="quantidadeCama" placeholder="Digite o Quantidade de Camas">
+              <p></p>
             </label>
-            <label for="tipo">
+
+            <label for="tipo" id="labelTipo">
               Tipo:
               <input type="text" id="tipo" placeholder="Digite o Tipo de Quarto">
+              <p></p>
             </label>
           </section>
           <section>
-            <label for="facilidade">
+
+            <label for="facilidade" id="labelFacilidade">
               Facilidade:
               <input type="text" id="facilidade" placeholder="Digite a facilidade do Quarto">
+              <p></p>
             </label>
-            <label for="valor">
+
+            <label for="valor" id="labelValor">
               Valor:
               <input type="number" id="valor" placeholder="Digite o Valor do Quarto">
+              <p></p>
             </label>
+
             <label for="inputFile" id="labelFile">
               Clique Aqui para Adicionar Foto
               <input type="file" id="inputFile">
             </label>
+
             <div class="card-btton">
               <button class="buttonCadastrarQuarto">Cadastrar</button>
               <button class="cancelModal">Cancelar</button>
