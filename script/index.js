@@ -12,21 +12,7 @@ function renderQuuarto() {
 
   arrayQuarto.map(element => {
 
-    // cardQuarto.innerHTML = `
-    // <img src="${element.imagem}" alt="">
-    // <section>
-    //   <span><strong>Número:</strong>${element.numero}</span>
-    //   <span><strong>Andar:</strong>${element.andar}º</span>
-    //   <span><strong>quantidade de camas:</strong>${element.quantidadeCama}</span>
-    // </section>
-    // <section>
-    //   <span><strong>Tipo:</strong>${element.tipo}</span>
-    //   <span><strong>Facilidade:</strong>${element.facilidade}</span>
-    //   <span><strong>valor:</strong>${element.valor}</span>
-    // </section>
-    // `
     let div = document.createElement("div")
-    div.setAttribute("class", "card-quarto")
     let sectionCardOld = document.createElement("section");
     let section = document.createElement("section");
     let img = document.createElement("img");
@@ -42,7 +28,9 @@ function renderQuuarto() {
     let strongTipo = document.createElement("strong");
     let strongFacilidade = document.createElement("strong");
     let strongValor = document.createElement("strong");
+
     img.setAttribute(`src`, `${element.imagem}`);
+    div.setAttribute("class", "card-quarto")
 
     strongNumero.innerText = `Número: `;
     strongAndar.innerText = `Andar: `;
@@ -84,6 +72,40 @@ function cancel(e) {
   }, 200);
 };
 
+document.querySelector(`#inputFile`).addEventListener(`change`, () => {
+  const fr = new FileReader();
+  fr.readAsDataURL(document.querySelector(`#inputFile`).files[0]);
+  fr.addEventListener(`load`, () => {
+    const url = fr.result;
+    globalurl = url;
+
+    document.querySelector(`.card-foto img`).src = globalurl;
+    document.querySelector(`.card-foto img`).style.display = "flex";
+    document.querySelector(`.card-foto h6`).style.display = "none";
+  });
+});
+
+// function validarNome(nome){
+//   return /^[a-zA-Z{1,3}]{3,}$/.test(nome);
+// };
+// function validarEspecialidade(nome){
+//   return /^[a-zA-Z{1,4}]{3,}$/.test(nome);
+// };
+// function validarPassword(password){
+//   return /^[a-zA-Z0-9]{6,}$/.test(password);
+//   // return  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
+// };
+// function validarTelefone(telefone){
+//  return /^[0-9]{9,}$/.test(telefone);
+// };
+// function validarEmail(email) {
+//   return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email);
+// };
+// function validarBI(bilhete) {
+//   return /^[0-9A-Z]{6,}$/.test(bilhete);
+// };
+
 renderQuuarto();
+document.querySelector(`.card-foto img`).style.display = "none";
 document.querySelector(`.button-cadastrar-quarto`).onclick = mostraMoodal;
 document.querySelector(`.cancelModal`).onclick = cancel;

@@ -15,6 +15,7 @@
   --box-schadow: 0px 0px 15px #999;
   --border-bottom: 1px solid var(--text-color-white);
   --background-geral: #f3f4f5;
+  --border-form-imagem: 2px solid rgb(94, 86, 86);
 }
 
 * {
@@ -217,11 +218,18 @@ form .card-dados section {
 form .card-foto {
   width: 16rem;
   height: 16rem;
-  border: 1px solid red;
+  border: var(--border-form-imagem);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
+}
+
+form .card-foto img {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 10px;
 }
 
 form .card-btton {
@@ -234,7 +242,7 @@ form #inputFile {
 
 form #labelFile {
   margin-top: 1.6rem;
-  border: 1px solid var(--background-nossos-service);
+  border: var(--border-form-imagem);
   padding: .8rem 0;
   border-radius: 16px;
   text-align: center;
