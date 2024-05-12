@@ -1,14 +1,11 @@
-const arrayQuarto = [
-  { numero: 0, andar: 2, quantidadeCama: 7, tipo: "t3", facilidade: "siples", imagem: "imagem/quartos/quarto1.avif", valor: 12222 },
-  { numero: 12, andar: 2, quantidadeCama: 7, tipo: "t3", facilidade: "siples", imagem: "imagem/quartos/quarto1.avif", valor: 12444 },
-  { numero: 12, andar: 2, quantidadeCama: 7, tipo: "t3", facilidade: "siples", imagem: "imagem/quartos/quarto1.avif", valor: 12333 },
-  { numero: 12, andar: 2, quantidadeCama: 7, tipo: "t3", facilidade: "siples", imagem: "imagem/quartos/quarto1.avif", valor: 13344 },
-  { numero: 1, andar: 2, quantidadeCama: 7, tipo: "t3", facilidade: "siples", imagem: "imagem/quartos/quarto1.avif", valor: 12344 }
-]
+
+const arrayQuarto = JSON.parse(localStorage.getItem(`arrayQuartos`)) || [];
 let cardQuarto = document.querySelector(`.card-quarto`);
+let globalurl;
 
 function renderQuuarto() {
-  // document.querySelector(`.containerBody`).innerHTML = "";
+
+  document.querySelector(`.containerBody`).innerHTML = "";
 
   arrayQuarto.map(element => {
 
@@ -29,7 +26,7 @@ function renderQuuarto() {
     let strongFacilidade = document.createElement("strong");
     let strongValor = document.createElement("strong");
 
-    img.setAttribute(`src`, `${element.imagem}`);
+    img.setAttribute(`src`, `${element.Image}`);
     div.setAttribute("class", "card-quarto")
 
     strongNumero.innerText = `Número: `;
@@ -44,7 +41,7 @@ function renderQuuarto() {
     spanQtidade.append(strongQtidade, element.quantidadeCama)
     spanTipo.append(strongTipo, element.tipo);
     spanFacilidade.append(strongFacilidade, element.facilidade);
-    spanValor.append(strongValor, element.valor, " kz");
+    spanValor.append(strongValor, (parseFloat(element.valor)).toFixed(2), " kz");
 
 
     sectionCardOld.append(spanNumero, spanAndar, spanQtidade);
@@ -70,7 +67,34 @@ function cancel(e) {
     document.querySelector(`.modal`).classList.remove(`openModal`);;
     document.querySelector('.modal').style.opacity = 0;
   }, 200);
+  document.querySelector(`#numero`).value = "";
+  document.querySelector(`#andar`).value = "";
+  document.querySelector(`#quantidadeCama`).value = "";
+  document.querySelector(`#tipo`).value = "";
+  document.querySelector(`#facilidade`).value = "";
+  document.querySelector(`#valor`).value = "";
+  document.querySelector(`.card-foto img`).style.display = "none";
+  document.querySelector(`.card-foto h6`).style.display = "flex";
+
 };
+
+function cadastrarQuarto(e) {
+  e.preventDefault();
+
+  arrayQuarto.push({
+    numero: document.querySelector(`#numero`).value,
+    andar: document.querySelector(`#andar`).value,
+    quantidadeCama: document.querySelector(`#quantidadeCama`).value,
+    tipo: document.querySelector(`#tipo`).value,
+    facilidade: document.querySelector(`#facilidade`).value,
+    valor: document.querySelector(`#valor`).value,
+    Image: globalurl
+  })
+  alert("Quarto Cadastrado com sucesso!!")
+  salveArrayQuarto();
+  renderQuuarto()
+  cancel(e);
+}
 
 document.querySelector(`#inputFile`).addEventListener(`change`, () => {
   const fr = new FileReader();
@@ -106,6 +130,10 @@ document.querySelector(`#inputFile`).addEventListener(`change`, () => {
 // };
 
 renderQuuarto();
+function salveArrayQuarto() {
+  localStorage.setItem(`arrayQuartos`, JSON.stringify(arrayQuarto));
+};
 document.querySelector(`.card-foto img`).style.display = "none";
 document.querySelector(`.button-cadastrar-quarto`).onclick = mostraMoodal;
 document.querySelector(`.cancelModal`).onclick = cancel;
+document.querySelector(`.buttonCadastrarQuarto`).onclick = cadastrarQuarto;
