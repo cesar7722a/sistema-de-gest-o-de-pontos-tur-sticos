@@ -81,19 +81,30 @@ function cancel(e) {
 function cadastrarQuarto(e) {
   e.preventDefault();
 
-  arrayQuarto.push({
-    numero: document.querySelector(`#numero`).value,
-    andar: document.querySelector(`#andar`).value,
-    quantidadeCama: document.querySelector(`#quantidadeCama`).value,
-    tipo: document.querySelector(`#tipo`).value,
-    facilidade: document.querySelector(`#facilidade`).value,
-    valor: document.querySelector(`#valor`).value,
-    Image: globalurl
-  })
-  alert("Quarto Cadastrado com sucesso!!")
-  salveArrayQuarto();
-  renderQuuarto()
-  cancel(e);
+  if ((validarNumero(document.querySelector(`#numero`).value) != false) &&
+    (validarNumero(document.querySelector(`#andar`).value) != false) &&
+    (validarNumero(document.querySelector(`#quantidadeCama`).value) != false) &&
+    (validarPreco(document.querySelector(`#valor`).value) != false) &&
+    (validarTipoQuarto(document.querySelector(`#tipo`).value) != false) &&
+    (validarFacilidadeQuarto(document.querySelector(`#facilidade`)) != false) && globalurl != "") {
+    arrayQuarto.push({
+      numero: document.querySelector(`#numero`).value,
+      andar: document.querySelector(`#andar`).value,
+      quantidadeCama: document.querySelector(`#quantidadeCama`).value,
+      tipo: document.querySelector(`#tipo`).value,
+      facilidade: document.querySelector(`#facilidade`).value,
+      valor: document.querySelector(`#valor`).value,
+      Image: globalurl
+    })
+    globalurl = "";
+    alert("Cadastrado feito com sucesso!!")
+    salveArrayQuarto();
+    renderQuuarto()
+    cancel(e);
+  } else {
+    alert("preeche corretamente o formulario!!")
+  }
+
 }
 
 document.querySelector(`#inputFile`).addEventListener(`change`, () => {
@@ -109,31 +120,127 @@ document.querySelector(`#inputFile`).addEventListener(`change`, () => {
   });
 });
 
-function validarNemero(nome) {
-  return /^[a-zA-Z{1,3}]{3,}$/.test(nome);
+function validarNumero(numero) {
+  return /^[0-9]{1,}$/.test(numero);
 };
-function validarAndar(nome) {
-  return /^[a-zA-Z{1,4}]{3,}$/.test(nome);
+
+function validarPreco(numero) {
+  return /^[0-9]{3,}$/.test(numero);
 };
-function validarQantidadeCama(password) {
-  return /^[a-zA-Z0-9]{6,}$/.test(password);
-  // return  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
+
+function validarTipo(nome) {
+  return /^[a-zA-Z]{2,}$/.test(nome);
 };
-function validarTipo(telefone) {
-  return /^[0-9]{9,}$/.test(telefone);
+
+
+function validarNumeroQuarto() {
+  let numero = document.querySelector(`#numero`).value;
+
+  if (validarNumero(numero) && numero != "") {
+    document.querySelector(`form #labelNumero p`).style.display = "flex";
+    document.querySelector(`form #labelNumero p`).innerHTML = `Número Valido`
+    document.querySelector(`form #labelNumero p`).classList.remove(`dadosErrados`);
+    document.querySelector(`form #labelNumero p`).classList.add(`dadosCertos`);
+  } else {
+    document.querySelector(`form #labelNumero p`).style.display = "flex";
+    document.querySelector(`form #labelNumero p`).innerHTML = `Tem quer ter no maximo um número`
+    document.querySelector(`form #labelNumero p`).classList.remove(`dadosCertos`);
+    document.querySelector(`form #labelNumero p`).classList.add(`dadosErrados`);
+  }
 };
-function validarFacilidade(email) {
-  return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email);
+
+function validarNumeroAndar() {
+  let andar = document.querySelector(`#andar`).value;
+
+  if (validarNumero(andar) && andar != "") {
+    document.querySelector(`form #labelAndar p`).style.display = "flex";
+    document.querySelector(`form #labelAndar p`).innerHTML = `Número Valido`
+    document.querySelector(`form #labelAndar p`).classList.remove(`dadosErrados`);
+    document.querySelector(`form #labelAndar p`).classList.add(`dadosCertos`);
+  } else {
+    document.querySelector(`form #labelAndar p`).style.display = "flex";
+    document.querySelector(`form #labelAndar p`).innerHTML = `Tem quer ter no maximo um número`
+    document.querySelector(`form #labelAndar p`).classList.remove(`dadosCertos`);
+    document.querySelector(`form #labelAndar p`).classList.add(`dadosErrados`);
+  }
 };
-function validarValor(bilhete) {
-  return /^[0-9A-Z]{6,}$/.test(bilhete);
+
+function validarQuantidadeCama() {
+  let qtidade = document.querySelector(`#quantidadeCama`).value;
+
+  if (validarNumero(qtidade) && qtidade != "") {
+    document.querySelector(`form #labelQuantidade p`).style.display = "flex";
+    document.querySelector(`form #labelQuantidade p`).innerHTML = `Número Valido`
+    document.querySelector(`form #labelQuantidade p`).classList.remove(`dadosErrados`);
+    document.querySelector(`form #labelQuantidade p`).classList.add(`dadosCertos`);
+  } else {
+    document.querySelector(`form #labelQuantidade p`).style.display = "flex";
+    document.querySelector(`form #labelQuantidade p`).innerHTML = `Tem quer ter no maximo um número`
+    document.querySelector(`form #labelQuantidade p`).classList.remove(`dadosCertos`);
+    document.querySelector(`form #labelQuantidade p`).classList.add(`dadosErrados`);
+  }
+};
+
+function validarValor() {
+  let valor = document.querySelector(`#valor`).value;
+
+  if (validarPreco(valor) && valor != "") {
+    document.querySelector(`form #labelValor p`).style.display = "flex";
+    document.querySelector(`form #labelValor p`).innerHTML = `Valor Valido`
+    document.querySelector(`form #labelValor p`).classList.remove(`dadosErrados`);
+    document.querySelector(`form #labelValor p`).classList.add(`dadosCertos`);
+  } else {
+    document.querySelector(`form #labelValor p`).style.display = "flex";
+    document.querySelector(`form #labelValor p`).innerHTML = `Num minimo 1000.00 kz`
+    document.querySelector(`form #labelValor p`).classList.remove(`dadosCertos`);
+    document.querySelector(`form #labelValor p`).classList.add(`dadosErrados`);
+  }
+};
+
+function validarTipoQuarto() {
+  let tipo = document.querySelector(`#tipo`).value;
+
+  if (validarTipo(tipo) && tipo != "") {
+    document.querySelector(`form #labelTipo p`).style.display = "flex";
+    document.querySelector(`form #labelTipo p`).innerHTML = `Tipo Valido`
+    document.querySelector(`form #labelTipo p`).classList.remove(`dadosErrados`);
+    document.querySelector(`form #labelTipo p`).classList.add(`dadosCertos`);
+  } else {
+    document.querySelector(`form #labelTipo p`).style.display = "flex";
+    document.querySelector(`form #labelTipo p`).innerHTML = `Tipo inválido`
+    document.querySelector(`form #labelTipo p`).classList.remove(`dadosCertos`);
+    document.querySelector(`form #labelTipo p`).classList.add(`dadosErrados`);
+  }
+};
+function validarFacilidadeQuarto() {
+  let facilidade = document.querySelector(`#facilidade`).value;
+
+  if (validarTipo(facilidade) && facilidade != "") {
+    document.querySelector(`form #labelFacilidade p`).style.display = "flex";
+    document.querySelector(`form #labelFacilidade p`).innerHTML = `Facilidade Valido`
+    document.querySelector(`form #labelFacilidade p`).classList.remove(`dadosErrados`);
+    document.querySelector(`form #labelFacilidade p`).classList.add(`dadosCertos`);
+  } else {
+    document.querySelector(`form #labelFacilidade p`).style.display = "flex";
+    document.querySelector(`form #labelFacilidade p`).innerHTML = `Facilidade inválido`
+    document.querySelector(`form #labelFacilidade p`).classList.remove(`dadosCertos`);
+    document.querySelector(`form #labelFacilidade p`).classList.add(`dadosErrados`);
+  }
 };
 
 renderQuuarto();
 function salveArrayQuarto() {
   localStorage.setItem(`arrayQuartos`, JSON.stringify(arrayQuarto));
 };
+
 document.querySelector(`.card-foto img`).style.display = "none";
 document.querySelector(`.button-cadastrar-quarto`).onclick = mostraMoodal;
 document.querySelector(`.cancelModal`).onclick = cancel;
 document.querySelector(`.buttonCadastrarQuarto`).onclick = cadastrarQuarto;
+
+document.querySelector(`#numero`).onkeyup = validarNumeroQuarto;
+document.querySelector(`#andar`).onkeyup = validarNumeroAndar;
+document.querySelector(`#quantidadeCama `).onkeyup = validarQuantidadeCama
+document.querySelector(`#valor`).onkeyup = validarValor;
+document.querySelector(`#tipo`).onkeyup = validarTipoQuarto;
+document.querySelector(`#facilidade`).onkeyup = validarFacilidadeQuarto;
