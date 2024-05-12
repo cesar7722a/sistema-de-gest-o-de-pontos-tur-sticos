@@ -12,19 +12,21 @@ function renderQuuarto() {
 
   arrayQuarto.map(element => {
 
-    cardQuarto.innerHTML = `
-    <img src="${element.imagem}" alt="">
-    <section>
-      <span><strong>Número:</strong>${element.numero}</span>
-      <span><strong>Andar:</strong>${element.andar}º</span>
-      <span><strong>quantidade de camas:</strong>${element.quantidadeCama}</span>
-    </section>
-    <section>
-      <span><strong>Tipo:</strong>${element.tipo}</span>
-      <span><strong>Facilidade:</strong>${element.facilidade}</span>
-      <span><strong>valor:</strong>${element.valor}</span>
-    </section>
-    `
+    // cardQuarto.innerHTML = `
+    // <img src="${element.imagem}" alt="">
+    // <section>
+    //   <span><strong>Número:</strong>${element.numero}</span>
+    //   <span><strong>Andar:</strong>${element.andar}º</span>
+    //   <span><strong>quantidade de camas:</strong>${element.quantidadeCama}</span>
+    // </section>
+    // <section>
+    //   <span><strong>Tipo:</strong>${element.tipo}</span>
+    //   <span><strong>Facilidade:</strong>${element.facilidade}</span>
+    //   <span><strong>valor:</strong>${element.valor}</span>
+    // </section>
+    // `
+    let div = document.createElement("div")
+    div.setAttribute("class", "card-quarto")
     let sectionCardOld = document.createElement("section");
     let section = document.createElement("section");
     let img = document.createElement("img");
@@ -34,12 +36,34 @@ function renderQuuarto() {
     let spanTipo = document.createElement("span");
     let spanFacilidade = document.createElement("span");
     let spanValor = document.createElement("span");
-    let strong = document.createElement("strong");
+    let strongNumero = document.createElement("strong");
+    let strongAndar = document.createElement("strong");
+    let strongQtidade = document.createElement("strong");
+    let strongTipo = document.createElement("strong");
+    let strongFacilidade = document.createElement("strong");
+    let strongValor = document.createElement("strong");
     img.setAttribute(`src`, `${element.imagem}`);
-    sectionCardOld.append()
-    section.append()
-    cardQuarto.append(img, sectionCardOld, section)
-    document.querySelector(`.containerBody`).append(cardQuarto);
+
+    strongNumero.innerText = `Número: `;
+    strongAndar.innerText = `Andar: `;
+    strongQtidade.innerText = `Quantidade de Cama: `;
+    strongTipo.innerText = `Tipo: `
+    strongFacilidade.innerText = `Facilidade: `;
+    strongValor.innerText = `Valor: `;
+
+    spanNumero.append(strongNumero, element.numero);
+    spanAndar.append(strongAndar, element.andar);
+    spanQtidade.append(strongQtidade, element.quantidadeCama)
+    spanTipo.append(strongTipo, element.tipo);
+    spanFacilidade.append(strongFacilidade, element.facilidade);
+    spanValor.append(strongValor, element.valor, " kz");
+
+
+    sectionCardOld.append(spanNumero, spanAndar, spanQtidade);
+    section.append(spanTipo, spanFacilidade, spanValor)
+
+    div.append(img, sectionCardOld, section)
+    document.querySelector(`.containerBody`).append(div);
   });
 };
 
