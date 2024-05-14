@@ -3,7 +3,7 @@ const arrayPontos = JSON.parse(localStorage.getItem(`arrayHotel`)) || [];
 let cardQuarto = document.querySelector(`.card-quarto`);
 
 
-function cadastrarPontos(e) {
+function cadastrarTurista(e) {
   e.preventDefault()
 
   if ((validarNome(document.querySelector(`#nome`).value) != false) &&
@@ -18,15 +18,15 @@ function cadastrarPontos(e) {
     })
 
     alert("Cadastrado feito com sucesso!!")
-    salveArrayPontos();
-    renderPontos()
+    salveArrayTurista();
+    renderTurista()
     cancel(e);
   } else {
     alert("preeche corretamente o formulario!!")
   }
 }
 
-function renderPontos() {
+function renderTurista() {
 
   document.querySelector(`.containerBody`).innerHTML = "";
 
@@ -56,7 +56,7 @@ function renderPontos() {
     strongQuartoDisponivel.innerText = `Quartos Disponíveis: `
     buttonEliminar.innerText = "Eliminar"
     buttonEliminar.addEventListener(`click`, (element) => {
-      eliminarPontos(arrayPontos.indexOf(element));
+      eliminarTurista(arrayPontos.indexOf(element));
       console.log(arrayPontos.indexOf(element));
     });
 
@@ -104,7 +104,7 @@ function validarClassificacao(numero) {
   return /^[0-9]{1,}$/.test(numero);
 };
 
-function validarNomeHotel() {
+function validarNomeTurista() {
   let nome = document.querySelector(`#nome`).value;
 
   if (validarNome(nome) && nome != "" && nome.trim()) {
@@ -168,22 +168,22 @@ function validarServico() {
   }
 };
 
-function salveArrayPontos() {
+function salveArrayTurista() {
   localStorage.setItem(`arrayHotel`, JSON.stringify(arrayPontos));
 };
 
-function eliminarPontos(posicao) {
+function eliminarTurista(posicao) {
   arrayPontos.splice(posicao, 1);
-  salveArrayPontos();
-  renderPontos();
+  salveArrayTurista();
+  renderTurista();
 };
 
 document.querySelector(`.buttonCadastro`).onclick = mostraMoodal;
 document.querySelector(`.cancelModal`).onclick = cancel;
-document.querySelector(`.buttonCadastrarHotel`).onclick = cadastrarPontos;
-document.querySelector(`#nome`).onkeyup = validarNomeHotel;
+document.querySelector(`.buttonCadastrarHotel`).onclick = cadastrarTurista;
+document.querySelector(`#nome`).onkeyup = validarNomeTurista;
 document.querySelector(`#classificacao`).onkeyup = validarClassificacaoHotel;
 document.querySelector(`#servico`).onkeyup = validarServico;
 document.querySelector(`#quartoDisponivel`).onkeyup = validarQuartoDisponivel;
 
-renderPontos();
+renderTurista();

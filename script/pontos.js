@@ -3,7 +3,7 @@ const arrayPontos = JSON.parse(localStorage.getItem(`arrayPontos`)) || [];
 let cardQuarto = document.querySelector(`.card-quarto`);
 
 
-function cadastrarPontos(e) {
+function cadastrarTurista(e) {
   e.preventDefault()
 
   if ((validarNome(document.querySelector(`#nome`).value) != false) &&
@@ -18,15 +18,15 @@ function cadastrarPontos(e) {
     })
 
     alert("Cadastrado feito com sucesso!!")
-    salveArrayPontos();
-    renderPontos()
+    salveArrayTurista();
+    renderTurista()
     cancel(e);
   } else {
     alert("preeche corretamente o formulario!!")
   }
 }
 
-function renderPontos() {
+function renderTurista() {
 
   document.querySelector(`.containerBody`).innerHTML = "";
 
@@ -56,7 +56,7 @@ function renderPontos() {
     strongGastronomia.innerText = `Gastronomia: `
     buttonEliminar.innerText = "Eliminar"
     buttonEliminar.addEventListener(`click`, (element) => {
-      eliminarPontos(arrayPontos.indexOf(element));
+      eliminarTurista(arrayPontos.indexOf(element));
     });
 
     spanNome.append(strongNome, element.nome);
@@ -99,7 +99,7 @@ function validarNome(nome) {
   return /^[a-zA-Z{1,3}]{3,}$/.test(nome);
 };
 
-function validarNomeHotel() {
+function validarNomeTurista() {
   let nome = document.querySelector(`#nome`).value;
 
   if (validarNome(nome) && nome != "" && nome.trim()) {
@@ -115,7 +115,7 @@ function validarNomeHotel() {
   }
 };
 
-function validarLocalizacaoHotel() {
+function validarEnderecoHotel() {
   let localizacao = document.querySelector(`#localizacao`).value;
 
   if (validarNome(localizacao) && localizacao != "" && localizacao.trim() != "") {
@@ -131,7 +131,7 @@ function validarLocalizacaoHotel() {
   }
 };
 
-function validarGastronomia() {
+function validarTelefone() {
   let gastronomia = document.querySelector(`#gastronomia`).value;
 
   if (validarNome(gastronomia) && gastronomia != "" && gastronomia.trim()) {
@@ -147,7 +147,7 @@ function validarGastronomia() {
   }
 };
 
-function validarLingua() {
+function validarBilhete() {
   let lingua = document.querySelector(`#lingua`).value;
 
   if (validarNome(lingua) && lingua != "" && lingua.trim()) {
@@ -163,22 +163,22 @@ function validarLingua() {
   }
 };
 
-function salveArrayPontos() {
+function salveArrayTurista() {
   localStorage.setItem(`arrayPontos`, JSON.stringify(arrayPontos));
 };
 
-function eliminarPontos(posicao) {
+function eliminarTurista(posicao) {
   arrayPontos.splice(posicao, 1);
-  salveArrayPontos();
-  renderPontos();
+  salveArrayTurista();
+  renderTurista();
 };
 
 document.querySelector(`.buttonCadastro`).onclick = mostraMoodal;
 document.querySelector(`.cancelModal`).onclick = cancel;
-document.querySelector(`.buttonCadastrarHotel`).onclick = cadastrarPontos;
-document.querySelector(`#nome`).onkeyup = validarNomeHotel;
-document.querySelector(`#localizacao`).onkeyup = validarLocalizacaoHotel;
-document.querySelector(`#lingua`).onkeyup = validarLingua;
-document.querySelector(`#labelGastronomia #gastronomia`).onkeyup = validarGastronomia;
+document.querySelector(`.buttonCadastrarHotel`).onclick = cadastrarTurista;
+document.querySelector(`#nome`).onkeyup = validarNomeTurista;
+document.querySelector(`#localizacao`).onkeyup = validarEnderecoHotel;
+document.querySelector(`#lingua`).onkeyup = validarBilhete;
+document.querySelector(`#labelGastronomia #gastronomia`).onkeyup = validarTelefone;
 
-renderPontos();
+renderTurista();
