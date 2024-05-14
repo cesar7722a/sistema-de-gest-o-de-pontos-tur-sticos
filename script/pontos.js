@@ -99,8 +99,6 @@ function validarNome(nome) {
   return /^[a-zA-Z{1,3}]{3,}$/.test(nome);
 };
 
-
-
 function validarNomeHotel() {
   let nome = document.querySelector(`#nome`).value;
 
