@@ -3,7 +3,7 @@ const arrayQuarto = JSON.parse(localStorage.getItem(`arrayQuartos`)) || [];
 let cardQuarto = document.querySelector(`.card-quarto`);
 let globalurl;
 
-function renderQuuarto() {
+function renderHotel() {
 
   document.querySelector(`.containerBody`).innerHTML = "";
 
@@ -81,10 +81,10 @@ function cancel(e) {
 function cadastrarQuarto(e) {
   e.preventDefault();
 
-  if ((validarNumero(document.querySelector(`#numero`).value) != false) &&
-    (validarNumero(document.querySelector(`#andar`).value) != false) &&
-    (validarNumero(document.querySelector(`#quantidadeCama`).value) != false) &&
-    (validarPreco(document.querySelector(`#valor`).value) != false) &&
+  if ((validarNome(document.querySelector(`#numero`).value) != false) &&
+    (validarNome(document.querySelector(`#andar`).value) != false) &&
+    (validarNome(document.querySelector(`#quantidadeCama`).value) != false) &&
+    (validarClassificacao(document.querySelector(`#valor`).value) != false) &&
     (validarTipoQuarto(document.querySelector(`#tipo`).value) != false) &&
     (validarFacilidadeQuarto(document.querySelector(`#facilidade`)) != false) && globalurl != "") {
     arrayQuarto.push({
@@ -99,7 +99,7 @@ function cadastrarQuarto(e) {
     globalurl = "";
     alert("Cadastrado feito com sucesso!!")
     salveArrayQuarto();
-    renderQuuarto()
+    renderHotel()
     cancel(e);
   } else {
     alert("preeche corretamente o formulario!!")
@@ -120,23 +120,23 @@ document.querySelector(`#inputFile`).addEventListener(`change`, () => {
   });
 });
 
-function validarNumero(numero) {
+function validarNome(numero) {
   return /^[0-9]{1,}$/.test(numero);
 };
 
-function validarPreco(numero) {
+function validarClassificacao(numero) {
   return /^[0-9]{3,}$/.test(numero);
 };
 
-function validarTipo(nome) {
+function validarServico(nome) {
   return /^[a-zA-Z]{2,}$/.test(nome);
 };
 
 
-function validarNumeroQuarto() {
+function validarNomeHotel() {
   let numero = document.querySelector(`#numero`).value;
 
-  if (validarNumero(numero) && numero != "") {
+  if (validarNome(numero) && numero != "") {
     document.querySelector(`form #labelNumero p`).style.display = "flex";
     document.querySelector(`form #labelNumero p`).innerHTML = `Número Valido`
     document.querySelector(`form #labelNumero p`).classList.remove(`dadosErrados`);
@@ -149,10 +149,10 @@ function validarNumeroQuarto() {
   }
 };
 
-function validarNumeroAndar() {
+function validarClassificacaoHotel() {
   let andar = document.querySelector(`#andar`).value;
 
-  if (validarNumero(andar) && andar != "") {
+  if (validarNome(andar) && andar != "") {
     document.querySelector(`form #labelAndar p`).style.display = "flex";
     document.querySelector(`form #labelAndar p`).innerHTML = `Número Valido`
     document.querySelector(`form #labelAndar p`).classList.remove(`dadosErrados`);
@@ -165,10 +165,10 @@ function validarNumeroAndar() {
   }
 };
 
-function validarQuantidadeCama() {
+function validarQuartoDisponivel() {
   let qtidade = document.querySelector(`#quantidadeCama`).value;
 
-  if (validarNumero(qtidade) && qtidade != "") {
+  if (validarNome(qtidade) && qtidade != "") {
     document.querySelector(`form #labelQuantidade p`).style.display = "flex";
     document.querySelector(`form #labelQuantidade p`).innerHTML = `Número Valido`
     document.querySelector(`form #labelQuantidade p`).classList.remove(`dadosErrados`);
@@ -181,10 +181,10 @@ function validarQuantidadeCama() {
   }
 };
 
-function validarValor() {
+function validarServico() {
   let valor = document.querySelector(`#valor`).value;
 
-  if (validarPreco(valor) && valor != "") {
+  if (validarClassificacao(valor) && valor != "") {
     document.querySelector(`form #labelValor p`).style.display = "flex";
     document.querySelector(`form #labelValor p`).innerHTML = `Valor Valido`
     document.querySelector(`form #labelValor p`).classList.remove(`dadosErrados`);
@@ -200,7 +200,7 @@ function validarValor() {
 function validarTipoQuarto() {
   let tipo = document.querySelector(`#tipo`).value;
 
-  if (validarTipo(tipo) && tipo != "") {
+  if (validarServico(tipo) && tipo != "") {
     document.querySelector(`form #labelTipo p`).style.display = "flex";
     document.querySelector(`form #labelTipo p`).innerHTML = `Tipo Valido`
     document.querySelector(`form #labelTipo p`).classList.remove(`dadosErrados`);
@@ -215,7 +215,7 @@ function validarTipoQuarto() {
 function validarFacilidadeQuarto() {
   let facilidade = document.querySelector(`#facilidade`).value;
 
-  if (validarTipo(facilidade) && facilidade != "") {
+  if (validarServico(facilidade) && facilidade != "") {
     document.querySelector(`form #labelFacilidade p`).style.display = "flex";
     document.querySelector(`form #labelFacilidade p`).innerHTML = `Facilidade Valido`
     document.querySelector(`form #labelFacilidade p`).classList.remove(`dadosErrados`);
@@ -228,7 +228,7 @@ function validarFacilidadeQuarto() {
   }
 };
 
-renderQuuarto();
+renderHotel();
 function salveArrayQuarto() {
   localStorage.setItem(`arrayQuartos`, JSON.stringify(arrayQuarto));
 };
@@ -238,9 +238,9 @@ document.querySelector(`.button-cadastrar-quarto`).onclick = mostraMoodal;
 document.querySelector(`.cancelModal`).onclick = cancel;
 document.querySelector(`.buttonCadastrarQuarto`).onclick = cadastrarQuarto;
 
-document.querySelector(`#numero`).onkeyup = validarNumeroQuarto;
-document.querySelector(`#andar`).onkeyup = validarNumeroAndar;
-document.querySelector(`#quantidadeCama `).onkeyup = validarQuantidadeCama
-document.querySelector(`#valor`).onkeyup = validarValor;
+document.querySelector(`#numero`).onkeyup = validarNomeHotel;
+document.querySelector(`#andar`).onkeyup = validarClassificacaoHotel;
+document.querySelector(`#quantidadeCama `).onkeyup = validarQuartoDisponivel
+document.querySelector(`#valor`).onkeyup = validarServico;
 document.querySelector(`#tipo`).onkeyup = validarTipoQuarto;
 document.querySelector(`#facilidade`).onkeyup = validarFacilidadeQuarto;
