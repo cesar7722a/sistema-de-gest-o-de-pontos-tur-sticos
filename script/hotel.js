@@ -1,16 +1,16 @@
 
-const arrayHotel = JSON.parse(localStorage.getItem(`arrayHotel`)) || [];
+const arrayPontos = JSON.parse(localStorage.getItem(`arrayHotel`)) || [];
 let cardQuarto = document.querySelector(`.card-quarto`);
 
 
-function cadastrarHotel(e) {
+function cadastrarPontos(e) {
   e.preventDefault()
 
   if ((validarNome(document.querySelector(`#nome`).value) != false) &&
     (validarClassificacao(document.querySelector(`#classificacao`).value) != false) &&
     (validarNome(document.querySelector(`#servico`).value) != false) &&
     (validarClassificacao(document.querySelector(`#quartoDisponivel`).value) != false)) {
-    arrayHotel.push({
+    arrayPontos.push({
       nome: document.querySelector(`#nome`).value,
       classificacao: document.querySelector(`#classificacao`).value,
       quartoDisponivel: document.querySelector(`#quartoDisponivel`).value,
@@ -18,19 +18,19 @@ function cadastrarHotel(e) {
     })
 
     alert("Cadastrado feito com sucesso!!")
-    salveArrayHotel();
-    renderHotel()
+    salveArrayPontos();
+    renderPontos()
     cancel(e);
   } else {
     alert("preeche corretamente o formulario!!")
   }
 }
 
-function renderHotel() {
+function renderPontos() {
 
   document.querySelector(`.containerBody`).innerHTML = "";
 
-  arrayHotel.map(element => {
+  arrayPontos.map(element => {
 
     let div = document.createElement("div")
     let divButtonEliminar = document.createElement("div")
@@ -56,8 +56,8 @@ function renderHotel() {
     strongQuartoDisponivel.innerText = `Quartos Disponíveis: `
     buttonEliminar.innerText = "Eliminar"
     buttonEliminar.addEventListener(`click`, (element) => {
-      eliminarHotel(arrayHotel.indexOf(element));
-      console.log(arrayHotel.indexOf(element));
+      eliminarPontos(arrayPontos.indexOf(element));
+      console.log(arrayPontos.indexOf(element));
     });
 
     spanNome.append(strongNome, element.nome);
@@ -168,22 +168,22 @@ function validarServico() {
   }
 };
 
-function salveArrayHotel() {
-  localStorage.setItem(`arrayHotel`, JSON.stringify(arrayHotel));
+function salveArrayPontos() {
+  localStorage.setItem(`arrayHotel`, JSON.stringify(arrayPontos));
 };
 
-function eliminarHotel(posicao) {
-  arrayHotel.splice(posicao, 1);
-  salveArrayHotel();
-  renderHotel();
+function eliminarPontos(posicao) {
+  arrayPontos.splice(posicao, 1);
+  salveArrayPontos();
+  renderPontos();
 };
 
 document.querySelector(`.buttonCadastro`).onclick = mostraMoodal;
 document.querySelector(`.cancelModal`).onclick = cancel;
-document.querySelector(`.buttonCadastrarHotel`).onclick = cadastrarHotel;
+document.querySelector(`.buttonCadastrarHotel`).onclick = cadastrarPontos;
 document.querySelector(`#nome`).onkeyup = validarNomeHotel;
 document.querySelector(`#classificacao`).onkeyup = validarClassificacaoHotel;
 document.querySelector(`#servico`).onkeyup = validarServico;
 document.querySelector(`#quartoDisponivel`).onkeyup = validarQuartoDisponivel;
 
-renderHotel();
+renderPontos();
