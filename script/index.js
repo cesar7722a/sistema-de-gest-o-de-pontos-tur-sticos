@@ -129,7 +129,7 @@ function validarClassificacao(numero) {
 };
 
 function validarServico(nome) {
-  return /^[a-zA-Z]{2,}$/.test(nome);
+  return /^[a-zA-Z]{1,}$/.test(nome);
 };
 
 
@@ -181,7 +181,7 @@ function validarQuartoDisponivel() {
   }
 };
 
-function validarServico() {
+function validarServicoQuarto() {
   let valor = document.querySelector(`#valor`).value;
 
   if (validarClassificacao(valor) && valor != "") {
@@ -241,6 +241,6 @@ document.querySelector(`.buttonCadastrarQuarto`).onclick = cadastrarQuarto;
 document.querySelector(`#numero`).onkeyup = validarNomeHotel;
 document.querySelector(`#andar`).onkeyup = validarClassificacaoHotel;
 document.querySelector(`#quantidadeCama `).onkeyup = validarQuartoDisponivel
-document.querySelector(`#valor`).onkeyup = validarServico;
+document.querySelector(`#valor`).onkeyup = validarServicoQuarto;
 document.querySelector(`#tipo`).onkeyup = validarTipoQuarto;
 document.querySelector(`#facilidade`).onkeyup = validarFacilidadeQuarto;
