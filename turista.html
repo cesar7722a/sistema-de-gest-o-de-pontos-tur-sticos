@@ -13,8 +13,8 @@
 
 <body class="container">
   <header class="header">
-    <h1>Pontos Turísticos</h1>
-    <button class="buttonCadastro">Cadastrar Pontos turisticos</button>
+    <h1>Turistas</h1>
+    <button class="buttonCadastro">Cadastrar Turista</button>
   </header>
   <div class="menuLeft">
     <ul>
@@ -29,34 +29,39 @@
   <div class="containerBody"></div>
   <div class="modal">
     <div class="card">
-      <h1>Cadastrar Pontos Turísticos</h1>
+      <h1>Cadastrar Turista</h1>
       <form action="">
         <div class="card-dados">
           <section>
 
             <label for="nome" id="labelNome">
               Nome:
-              <input type="text" id="nome" placeholder="Digite o Nome do Ponto">
+              <input type="text" id="nome" placeholder="Digite o Nome do Hotel">
               <p></p>
             </label>
 
-            <label for="localizacao" id="labelLocalizacao">
-              Localização:
-              <input type="text" id="localizacao" placeholder="Digite a localizacao">
+            <label for="endereco" id="labelEndereco">
+              Endereço:
+              <input type="text" id="endereco" placeholder="Digite o Endereco">
               <p></p>
             </label>
 
-            <label for="gastronomia" id="labelGastronomia">
-              Gastronomia:
-              <input type="text" id="gastronomia" placeholder="Digite a Gastronomia">
+            <label for="telefone" id="labelTelefone">
+              Telefone:
+              <input type="number" id="telefone" placeholder="Digite o Número de Telefone">
               <p></p>
             </label>
 
           </section>
           <section>
-            <label for="lingua" id="labelLingua">
-              Lingua:
-              <input type="text" id="lingua" placeholder="Digite a Língua">
+            <label for="bilhete" id="labelBilhete">
+              Bilhete:
+              <input type="text" id="bilhete" placeholder="Digite o número do bilhete">
+              <p></p>
+            </label>
+            <label for="pais" id="labelPais">
+              Pais:
+              <input type="text" id="pais" placeholder="Digite o número do pais">
               <p></p>
             </label>
             <div class="card-btton">
@@ -68,7 +73,7 @@
       </form>
     </div>
   </div>
-  <script src="script/pontos.js"></script>
+  <script src="script/turista.js"></script>
 </body>
 
 </html>
