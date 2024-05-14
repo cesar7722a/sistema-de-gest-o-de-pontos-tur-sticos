@@ -3,7 +3,7 @@ const arrayQuarto = JSON.parse(localStorage.getItem(`arrayQuartos`)) || [];
 let cardQuarto = document.querySelector(`.card-quarto`);
 let globalurl;
 
-function renderHotel() {
+function renderPontos() {
 
   document.querySelector(`.containerBody`).innerHTML = "";
 
@@ -99,7 +99,7 @@ function cadastrarQuarto(e) {
     globalurl = "";
     alert("Cadastrado feito com sucesso!!")
     salveArrayQuarto();
-    renderHotel()
+    renderPontos()
     cancel(e);
   } else {
     alert("preeche corretamente o formulario!!")
@@ -228,7 +228,7 @@ function validarFacilidadeQuarto() {
   }
 };
 
-renderHotel();
+renderPontos();
 function salveArrayQuarto() {
   localStorage.setItem(`arrayQuartos`, JSON.stringify(arrayQuarto));
 };

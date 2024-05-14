@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sistema de gestão de pontos turisticos</title>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/hotel.css">
   <link rel="stylesheet" href="font/css/all.css">
   <link rel="stylesheet" href="css/reservas.css">
 </head>
 
 <body class="container">
   <header class="header">
-    <h1>Pontos Turisticos</h1>
-    <button>Cadastrar Pontos</button>
+    <h1>Pontos Turísticos</h1>
+    <button class="buttonCadastro">Cadastrar Pontos turisticos</button>
   </header>
   <div class="menuLeft">
     <ul>
@@ -25,104 +26,49 @@
       <li><i class="fa-solid fa-hotel"></i><a href="hoteis.html">Hoteis</a></li>
     </ul>
   </div>
-  <div class="containerBody">
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong>fffffffff</span>
-        <span><strong>Facilidade:</strong>ferrrrer</span>
-        <span><strong>valor:</strong></span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Reservar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong>fffffffff</span>
-        <span><strong>Facilidade:</strong>ferrrrer</span>
-        <span><strong>valor:</strong></span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Reservar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong>fffffffff</span>
-        <span><strong>Facilidade:</strong>ferrrrer</span>
-        <span><strong>valor:</strong></span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Reservar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong>fffffffff</span>
-        <span><strong>Facilidade:</strong>ferrrrer</span>
-        <span><strong>valor:</strong></span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Reservar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong>fffffffff</span>
-        <span><strong>Facilidade:</strong>ferrrrer</span>
-        <span><strong>valor:</strong></span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Reservar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Número:</strong>123</span>
-        <span><strong>Andar:</strong>2º</span>
-        <span><strong>quantidade de camas:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Tipo:</strong>fffffffff</span>
-        <span><strong>Facilidade:</strong>ferrrrer</span>
-        <span><strong>valor:</strong></span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Reservar</button>
-      </div>
+  <div class="containerBody"></div>
+  <div class="modal">
+    <div class="card">
+      <h1>Cadastrar Hotel</h1>
+      <form action="">
+        <div class="card-dados">
+          <section>
+
+            <label for="nome" id="labelNome">
+              Nome:
+              <input type="text" id="nome" placeholder="Digite o Nome do Ponto">
+              <p></p>
+            </label>
+
+            <label for="localizacao" id="labelLocalizacao">
+              Localização:
+              <input type="text" id="localizacao" placeholder="Digite a localizacao">
+              <p></p>
+            </label>
+
+            <label for="gastronomia" id="labelGastronomia">
+              Gastronomia:
+              <input type="text" id="gastronomia" placeholder="Digite a Gastronomia">
+              <p></p>
+            </label>
+
+          </section>
+          <section>
+            <label for="lingua" id="labelLingua">
+              Lingua:
+              <input type="text" id="lingua" placeholder="Digite a Língua">
+              <p></p>
+            </label>
+            <div class="card-btton">
+              <button class="buttonCadastrarHotel">Cadastrar</button>
+              <button class="cancelModal">Cancelar</button>
+            </div>
+          </section>
+        </div>
+      </form>
     </div>
   </div>
+  <script src="script/pontos.js"></script>
 </body>
 
 </html>
