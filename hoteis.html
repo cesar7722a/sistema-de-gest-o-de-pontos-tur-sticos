@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sistema de gestão de pontos turisticos</title>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/hotel.css">
   <link rel="stylesheet" href="font/css/all.css">
   <link rel="stylesheet" href="css/reservas.css">
 </head>
@@ -13,7 +14,7 @@
 <body class="container">
   <header class="header">
     <h1>Hoteis</h1>
-    <button>Cadastrar Hoteis</button>
+    <button class="buttonCadastro">Cadastrar Hoteis</button>
   </header>
   <div class="menuLeft">
     <ul>
@@ -25,92 +26,49 @@
       <li><i class="fa-solid fa-hotel"></i><a href="hoteis.html">Hoteis</a></li>
     </ul>
   </div>
-  <div class="containerBody">
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Nome:</strong>123</span>
-        <span><strong>Classificação:</strong>2º</span>
-        <span><strong>Serviços:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Quartos Disponível:</strong>fffffffff</span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Eliminar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Nome:</strong>123</span>
-        <span><strong>Classificação:</strong>2º</span>
-        <span><strong>Serviços:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Quartos Disponível:</strong>fffffffff</span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Eliminar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Nome:</strong>123</span>
-        <span><strong>Classificação:</strong>2º</span>
-        <span><strong>Serviços:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Quartos Disponível:</strong>fffffffff</span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Eliminar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Nome:</strong>123</span>
-        <span><strong>Classificação:</strong>2º</span>
-        <span><strong>Serviços:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Quartos Disponível:</strong>fffffffff</span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Eliminar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Nome:</strong>123</span>
-        <span><strong>Classificação:</strong>2º</span>
-        <span><strong>Serviços:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Quartos Disponível:</strong>fffffffff</span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Eliminar</button>
-      </div>
-    </div>
-    <div class="card-quarto">
-      <img src="imagem/quartos/quarto1.avif" alt="">
-      <section>
-        <span><strong>Nome:</strong>123</span>
-        <span><strong>Classificação:</strong>2º</span>
-        <span><strong>Serviços:</strong>1</span>
-      </section>
-      <section>
-        <span><strong>Quartos Disponível:</strong>fffffffff</span>
-      </section>
-      <div class="card-buttom-reservar">
-        <button>Eliminar</button>
-      </div>
+  <div class="containerBody"></div>
+  <div class="modal">
+    <div class="card">
+      <h1>Cadastrar Hotel</h1>
+      <form action="">
+        <div class="card-dados">
+          <section>
+
+            <label for="nome" id="labelNome">
+              Nome:
+              <input type="text" id="nome" placeholder="Digite o Nome do Hotel">
+              <p></p>
+            </label>
+
+            <label for="classificacao" id="labelClassificacao">
+              Classificação:
+              <input type="number" id="classificacao" placeholder="Digite a classificacao">
+              <p></p>
+            </label>
+
+            <label for="servico" id="labelServico">
+              Serviço:
+              <input type="text" id="servico" placeholder="Digite o Serviço">
+              <p></p>
+            </label>
+
+          </section>
+          <section>
+            <label for="quartoDispon" id="labelQuartoDisponivel">
+              Quarto Disponivel
+              <input type="number" id="quartoDisponivel" placeholder="Digite o número de quartos disponiveis">
+              <p></p>
+            </label>
+            <div class="card-btton">
+              <button class="buttonCadastrarHotel">Cadastrar</button>
+              <button class="cancelModal">Cancelar</button>
+            </div>
+          </section>
+        </div>
+      </form>
     </div>
   </div>
+  <script src="script/hotel.js"></script>
 </body>
 
 </html>
